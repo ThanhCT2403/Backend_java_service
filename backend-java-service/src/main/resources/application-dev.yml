@@ -1,0 +1,46 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  devtools:
+    add-properties: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+#    hikari: # Connection poll
+#      max-lifetime: 300000      # 5 phút
+#      idle-timeout: 60000       # 1 phút
+#      validation-timeout: 5000  # 5 giây
+#      minimum-idle: 5
+#      maximum-pool-size: 20
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  sendgrid:
+    api-key: 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
+    from-email: thanhtrungcan@gmail.com
+    templateId: d-d837c6ff66ba4e14ad8adf3640703d45
+    verificationLink: http://localhost:8081/user/confirm-email
+# application-dev.yml
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+openapi:
+  service:
+    api-docs: backend-service
+    server: http://localhost:${server.port}
+    title: Backend service
+    version: 1.0.0
+
+jwt:
+  expireMinutes: 1
+  expireDay: 14
+  accessKey: dpizFNlLKQOZAt2EivZr/HZY7ss7P+QlXWBKdJrmVRw=
+  refreshKey: PP4EqQ/lclPnpNMHjBQBH0nHDB711FjQwhqnb1x9+7k=
